@@ -1,7 +1,7 @@
 "use client"
 
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Badge } from "./ui/badge"
+import { Button } from "./ui/button"
 import { Atom, Zap, Activity } from "lucide-react"
 
 export function HeroSection() {
