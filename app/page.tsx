@@ -5,7 +5,7 @@ import { StatusSection } from "@/components/status-section"
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-background">
       <HeroSection />
       <StagesSection />
       <DiscoveriesSection />
