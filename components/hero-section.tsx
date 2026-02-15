@@ -1,8 +1,55 @@
 "use client"
 
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import { Atom, Zap, Activity } from "lucide-react"
+
+function Badge({
+  className = "",
+  children,
+  variant = "default",
+  ...props
+}: React.HTMLAttributes<HTMLDivElement> & { variant?: string }) {
+  const base =
+    "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors"
+  const variants: Record<string, string> = {
+    default: "border-transparent bg-primary text-primary-foreground",
+    outline: "text-foreground",
+  }
+  return (
+    <div className={`${base} ${variants[variant] || variants.default} ${className}`} {...props}>
+      {children}
+    </div>
+  )
+}
+
+function Button({
+  className = "",
+  children,
+  variant = "default",
+  size = "default",
+  ...props
+}: React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: string
+  size?: string
+}) {
+  const base =
+    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+  const variants: Record<string, string> = {
+    default: "bg-primary text-primary-foreground hover:bg-primary/90",
+    outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+  }
+  const sizes: Record<string, string> = {
+    default: "h-10 px-4 py-2",
+    lg: "h-11 rounded-md px-8",
+  }
+  return (
+    <button
+      className={`${base} ${variants[variant] || variants.default} ${sizes[size] || sizes.default} ${className}`}
+      {...props}
+    >
+      {children}
+    </button>
+  )
+}
 
 export function HeroSection() {
   return (

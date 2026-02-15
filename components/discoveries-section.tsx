@@ -1,6 +1,55 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Clock, Grid3X3, ArrowLeftRight, Sparkles } from "lucide-react"
+
+function Badge({
+  className = "",
+  children,
+  variant = "default",
+  ...props
+}: React.HTMLAttributes<HTMLDivElement> & { variant?: string }) {
+  const base =
+    "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors"
+  const variants: Record<string, string> = {
+    default: "border-transparent bg-primary text-primary-foreground",
+    outline: "text-foreground",
+  }
+  return (
+    <div className={`${base} ${variants[variant] || variants.default} ${className}`} {...props}>
+      {children}
+    </div>
+  )
+}
+
+function Card({ className = "", children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className={`rounded-lg border bg-card text-card-foreground shadow-sm ${className}`} {...props}>
+      {children}
+    </div>
+  )
+}
+
+function CardHeader({ className = "", children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className={`flex flex-col space-y-1.5 p-6 ${className}`} {...props}>
+      {children}
+    </div>
+  )
+}
+
+function CardTitle({ className = "", children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className={`text-2xl font-semibold leading-none tracking-tight ${className}`} {...props}>
+      {children}
+    </div>
+  )
+}
+
+function CardContent({ className = "", children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className={`p-6 pt-0 ${className}`} {...props}>
+      {children}
+    </div>
+  )
+}
 
 const discoveries = [
   {
