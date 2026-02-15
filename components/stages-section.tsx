@@ -68,9 +68,9 @@ const stages = [
     icon: Link2,
     description: "Creates Einstein-Rosen bridge using Thermofield Double state",
     details: [
-      { label: "Gates", value: "H → RY(θ_lock) → CX" },
-      { label: "Qubits", value: "50 entangled pairs (L ↔ R)" },
-      { label: "Constant", value: "θ_lock = 51.843°" },
+      { label: "Gates", value: "H, RY, CX" },
+      { label: "Qubits", value: "50 entangled pairs" },
+      { label: "Constant", value: "51.843 deg" },
     ],
   },
   {
@@ -80,7 +80,7 @@ const stages = [
     icon: Eye,
     description: "Stroboscopic weak measurements freeze the wormhole state",
     details: [
-      { label: "Rate", value: "κ = 1 MHz" },
+      { label: "Rate", value: "1 MHz" },
       { label: "Cycles", value: "100 measurement cycles" },
       { label: "Gates", value: "CRY + MEASURE + RESET" },
     ],
@@ -105,7 +105,7 @@ const stages = [
     description: "Classical corrections based on mid-circuit measurements",
     details: [
       { label: "Latency", value: "<300ns" },
-      { label: "Gates", value: "X (bit flip) + RZ(θ_lock)" },
+      { label: "Gates", value: "X (bit flip) + RZ" },
       { label: "Mode", value: "Real-time feedback" },
     ],
   },

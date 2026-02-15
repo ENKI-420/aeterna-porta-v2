@@ -54,7 +54,6 @@ function Button({
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden px-6 py-24 lg:py-32">
-      {/* Background effects */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
         <div className="absolute right-1/4 bottom-1/4 h-96 w-96 rounded-full bg-secondary/10 blur-3xl" />
@@ -102,7 +101,7 @@ export function HeroSection() {
             <div className="text-sm text-muted-foreground">Shots</div>
           </div>
           <div>
-            <div className="text-3xl font-bold text-secondary">51.843°</div>
+            <div className="text-3xl font-bold text-secondary">51.843&deg;</div>
             <div className="text-sm text-muted-foreground">Lenoir Angle</div>
           </div>
         </div>

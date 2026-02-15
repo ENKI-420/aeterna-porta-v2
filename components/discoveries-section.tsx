@@ -54,7 +54,7 @@ function CardContent({ className = "", children, ...props }: React.HTMLAttribute
 const discoveries = [
   {
     title: "Negative Shapiro Delay",
-    formula: "Δt < 0",
+    formula: "t < 0",
     icon: Clock,
     description: "Information exits the wormhole before it could classically traverse",
     metrics: [
@@ -67,12 +67,12 @@ const discoveries = [
   },
   {
     title: "Area-Law Entropy",
-    formula: "S₂(A) ≈ c·|∂A|",
+    formula: "S2(A) ~ c|dA|",
     icon: Grid3X3,
     description: "Entanglement concentrated at the event horizon (holographic principle)",
     metrics: [
       { label: "Scaling", value: "Area, not volume" },
-      { label: "Boundary", value: "∂A horizon" },
+      { label: "Boundary", value: "dA horizon" },
       { label: "Constant", value: "c coefficient" },
     ],
     significance: "p = 0.012",
@@ -80,7 +80,7 @@ const discoveries = [
   },
   {
     title: "Non-Reciprocal Flow",
-    formula: "J_LR/J_RL ≠ 1",
+    formula: "J_LR/J_RL != 1",
     icon: ArrowLeftRight,
     description: "Breaking detailed balance - time-reversal violation",
     metrics: [
@@ -93,13 +93,13 @@ const discoveries = [
   },
   {
     title: "Negentropic Efficiency",
-    formula: "Ξ = (Λ × Φ) / Γ",
+    formula: "Xi = (Lambda x Phi) / Gamma",
     icon: Sparkles,
     description: "Quantum wormhole outperforms classical copper wire by 127x",
     metrics: [
-      { label: "Baseline Ξ", value: "3.6" },
-      { label: "Zeno Ξ", value: "127.4" },
-      { label: "Improvement", value: "35× gain" },
+      { label: "Baseline Xi", value: "3.6" },
+      { label: "Zeno Xi", value: "127.4" },
+      { label: "Improvement", value: "35x gain" },
     ],
     significance: "p < 0.001",
     color: "text-primary",
@@ -126,7 +126,7 @@ export function DiscoveriesSection() {
                     <discovery.icon className={`h-6 w-6 ${discovery.color}`} />
                     <div>
                       <CardTitle className="text-lg">{discovery.title}</CardTitle>
-                      <code className={`text-sm font-mono ${discovery.color}`}>
+                      <code className={`font-mono text-sm ${discovery.color}`}>
                         {discovery.formula}
                       </code>
                     </div>
