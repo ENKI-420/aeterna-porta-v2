@@ -1,5 +1,6 @@
 "use client"
 
+// v0-rebuild: all sections inline - no external component imports
 import { Atom, Zap, Activity, Clock, Grid3X3, ArrowLeftRight, Sparkles, Link2, Eye, Radio, Cpu, BarChart3, CheckCircle2, FileCode, Terminal, BookOpen } from "lucide-react"
 
 /* ─── Inline UI primitives ─── */
