@@ -1,11 +1,60 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Clock, Grid3X3, ArrowLeftRight, Sparkles } from "lucide-react"
+
+function Badge({
+  className = "",
+  children,
+  variant = "default",
+  ...props
+}: React.HTMLAttributes<HTMLDivElement> & { variant?: string }) {
+  const base =
+    "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors"
+  const variants: Record<string, string> = {
+    default: "border-transparent bg-primary text-primary-foreground",
+    outline: "text-foreground",
+  }
+  return (
+    <div className={`${base} ${variants[variant] || variants.default} ${className}`} {...props}>
+      {children}
+    </div>
+  )
+}
+
+function Card({ className = "", children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className={`rounded-lg border bg-card text-card-foreground shadow-sm ${className}`} {...props}>
+      {children}
+    </div>
+  )
+}
+
+function CardHeader({ className = "", children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className={`flex flex-col space-y-1.5 p-6 ${className}`} {...props}>
+      {children}
+    </div>
+  )
+}
+
+function CardTitle({ className = "", children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className={`text-2xl font-semibold leading-none tracking-tight ${className}`} {...props}>
+      {children}
+    </div>
+  )
+}
+
+function CardContent({ className = "", children, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className={`p-6 pt-0 ${className}`} {...props}>
+      {children}
+    </div>
+  )
+}
 
 const discoveries = [
   {
     title: "Negative Shapiro Delay",
-    formula: "Δt < 0",
+    formula: "t < 0",
     icon: Clock,
     description: "Information exits the wormhole before it could classically traverse",
     metrics: [
@@ -18,12 +67,12 @@ const discoveries = [
   },
   {
     title: "Area-Law Entropy",
-    formula: "S₂(A) ≈ c·|∂A|",
+    formula: "S2(A) ~ c|dA|",
     icon: Grid3X3,
     description: "Entanglement concentrated at the event horizon (holographic principle)",
     metrics: [
       { label: "Scaling", value: "Area, not volume" },
-      { label: "Boundary", value: "∂A horizon" },
+      { label: "Boundary", value: "dA horizon" },
       { label: "Constant", value: "c coefficient" },
     ],
     significance: "p = 0.012",
@@ -31,7 +80,7 @@ const discoveries = [
   },
   {
     title: "Non-Reciprocal Flow",
-    formula: "J_LR/J_RL ≠ 1",
+    formula: "J_LR/J_RL != 1",
     icon: ArrowLeftRight,
     description: "Breaking detailed balance - time-reversal violation",
     metrics: [
@@ -44,13 +93,13 @@ const discoveries = [
   },
   {
     title: "Negentropic Efficiency",
-    formula: "Ξ = (Λ × Φ) / Γ",
+    formula: "Xi = (Lambda x Phi) / Gamma",
     icon: Sparkles,
     description: "Quantum wormhole outperforms classical copper wire by 127x",
     metrics: [
-      { label: "Baseline Ξ", value: "3.6" },
-      { label: "Zeno Ξ", value: "127.4" },
-      { label: "Improvement", value: "35× gain" },
+      { label: "Baseline Xi", value: "3.6" },
+      { label: "Zeno Xi", value: "127.4" },
+      { label: "Improvement", value: "35x gain" },
     ],
     significance: "p < 0.001",
     color: "text-primary",
@@ -77,7 +126,7 @@ export function DiscoveriesSection() {
                     <discovery.icon className={`h-6 w-6 ${discovery.color}`} />
                     <div>
                       <CardTitle className="text-lg">{discovery.title}</CardTitle>
-                      <code className={`text-sm font-mono ${discovery.color}`}>
+                      <code className={`font-mono text-sm ${discovery.color}`}>
                         {discovery.formula}
                       </code>
                     </div>
